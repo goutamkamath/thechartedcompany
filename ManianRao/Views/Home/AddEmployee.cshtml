@@ -1,0 +1,999 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: -2.5px;
+            bottom: 3px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <link rel="shortcut icon" href="~/Content/Images/icons/icon-48x48.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Plugins/fontawesome-free/css/all.min.css">
+
+    <title>The Charted Company</title>
+
+    <link href="~/Content/CSS/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="index.html">
+                    <span class="align-middle">MANIAN & RAO</span>
+                    <label style="font-size: 12px">Chartered Accountants</label>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Pages
+                    </li>
+
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="Payroll">
+                            <i class="align-middle" data-feather="dollar-sign"></i> <span class="align-middle">Payroll Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="LeaveManagement">
+                            <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Leave Management</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle d-flex">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <form class="d-none d-sm-inline-block">
+                    <div class="input-group input-group-navbar">
+                        
+                    </div>
+                </form>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                           
+                        </li>
+                        <li class="nav-item dropdown">
+                           
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+                                <img src="~/Content/Images/avatars/avatar-3.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">HR Login</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+
+                                <a class="dropdown-item" href="AddEmployee"><i class="align-middle mr-1" data-feather="users"></i> Manage Employees</a>
+                                <a class="dropdown-item" href="Holidays"><i class="align-middle mr-1" data-feather="clock"></i> Manage Holidays</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="Setting"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
+                                <a class="dropdown-item" href="Help"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="content" style="background-image: url('/Content/Images/Employees.jpg')">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-auto d-none d-sm-block">
+                            <h3><b>Employee Management</b></h3>
+                        </div>
+
+                        <!-- <div class="col-auto ml-auto text-right mt-n1">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+                    <li class="breadcrumb-item"><a href="#">AdminKit</a></li>
+                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Analytics</li>
+                </ol>
+            </nav>
+        </div> -->
+                    </div>
+                    <div class="card" style="box-shadow: 2px 2px 2px 2px #D9D9D9">
+
+                        <div class="card-body">
+                            <form role="form" id="PayrollForm" novalidate="novalidate">
+                                <div class="row">
+
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="UserName">Employee Name*</label>
+                                            <input type="text" name="UserName" class="form-control is-invalid" id="UserName"
+                                                   placeholder="Enter Name" aria-describedby="exampleInputRole-error"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="EmployeeType">Employee Type</label>
+                                            <select id="EmployeeType" class="form-control form-select mb-3 is-invalid"
+                                                    aria-describedby="EmployeeType-error" style="width: 100%" oninput="emptypechanged()" required>
+                                                <option class="text-muted" value="DEF">Select Employee Type</option>
+                                                <option value="Article">Article</option>
+                                                <option value="Employee">Employee</option>
+
+                                            </select>
+                                            <span id="EmployeeType-error" class="error invalid-feedback">
+                                                Please select
+                                                Employee Type
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="DateOfJoin">Date of Joining*</label>
+                                            <input type="date" name="DateOfJoin" class="form-control is-invalid" id="DateOfJoin"
+                                                   placeholder="Enter Joining Date" aria-describedby="DateOfJoin-error" oninput="dojchanged()"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" id="divAutoSalaryCheckBox">
+                                        <span style="position:relative;left:2.5%;" id="UserAccess">Standard Salary based on Joining Date</span>
+                                        <label class="switch" style="left:-14%;top:28px;position:relative">
+                                            <input type="checkbox" id="AutoSalaryCheckBox" onchange="salaryToggle(this)" disabled>
+                                            <span class="slider round" style="height: 57%; width: 62%;top: -64%; left: 77%;"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" id="divSalary">
+                                        <div class="form-group">
+                                            <label for="Salary">Salary*</label>
+                                            <input type="text" name="Salary" class="form-control is-invalid" id="Salary"
+                                                   placeholder="Enter Salary" aria-describedby="Salary-error" oninput="validateIsRequiredFields()"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="display:none" id="divbasicsal">
+                                        <div class="form-group">
+                                            <label for="basicsal">Basic Salary*</label>
+                                            <input type="text" name="basicsal" class="form-control is-invalid" id="basicsal"
+                                                   placeholder="Enter Basic Salary" aria-describedby="exampleInputRole-error"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="display:none" id="divHRA">
+                                        <div class="form-group">
+                                            <label for="HRA">HRA*</label>
+                                            <input type="text" name="HRA" class="form-control is-invalid" id="HRA"
+                                                   placeholder="Enter HRA" aria-describedby="exampleInputRole-error"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="display:none" id="divAllowance">
+                                        <div class="form-group">
+                                            <label for="Allowance">Allowance*</label>
+                                            <input type="text" name="Allowance" class="form-control is-invalid" id="Allowance"
+                                                   placeholder="Enter Allowance" aria-describedby="exampleInputRole-error"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="display:none" id="divTDS">
+                                        <div class="form-group">
+                                            <label for="TDS">TDS*</label>
+                                            <input type="text" name="TDS" class="form-control is-invalid" id="TDS"
+                                                   placeholder="Enter TDS" aria-describedby="exampleInputRole-error"
+                                                   autocomplete="off" required />
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                    </br> </br>
+                                    <div class="row">
+
+
+
+
+                                    </div>
+                                    </br>
+                                    <div>
+
+                                        <label onclick="AddEmployees()" class="float-left btn btn-primary">Add Employee</label>
+                                    </div>
+</form>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="DescModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="width:148%;left:-17%;margin-top:23% !important">
+                                <div class="modal-header">
+
+                                    <h3 class="modal-title" id="headerForBranchName">Employee Details</h3>
+
+                                </div>
+                                <div class="modal-body">
+                                    <h5 class="text-center"></h5>
+                                    <form role="form" id="editingPayrollForm" novalidate="novalidate">
+                                        <div class="row">
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingUserName">Employee Name*</label>
+                                                    <input type="text" name="editingUserName" class="form-control is-invalid" id="editingUserName"
+                                                           placeholder="Enter Name" aria-describedby="editingexampleInputRole-error"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingEmployeeType">Employee Type</label>
+                                                    <select id="editingEmployeeType" class="form-control form-select mb-3 is-invalid"
+                                                            aria-describedby="EmployeeType-error" style="width: 100%" oninput="emptypechanged('editing')" required>
+                                                        <option class="text-muted" value="DEF">Select Employee Type</option>
+                                                        <option value="Article">Article</option>
+                                                        <option value="Employee">Employee</option>
+
+                                                    </select>
+                                                    <span id="editingEmployeeType-error" class="error invalid-feedback">
+                                                        Please select
+                                                        Employee Type
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingDateOfJoin">Date of Joining*</label>
+                                                    <input type="date" name="editingDateOfJoin" class="form-control is-invalid" id="editingDateOfJoin"
+                                                           placeholder="Enter Joining Date" aria-describedby="DateOfJoin-error" oninput="validateIsRequiredFields('editing')"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3"  id="editingdivbasicsal">
+                                                <div class="form-group">
+                                                    <label for="editingbasicsal">Basic Salary*</label>
+                                                    <input type="text" name="editingbasicsal" class="form-control " id="editingbasicsal"
+                                                           placeholder="Enter Basic Salary" aria-describedby="exampleInputRole-error"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3"  id="editingdivHRA">
+                                                <div class="form-group">
+                                                    <label for="editingHRA">HRA*</label>
+                                                    <input type="text" name="editingHRA" class="form-control " id="editingHRA"
+                                                           placeholder="Enter HRA" aria-describedby="exampleInputRole-error"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3"  id="editingdivAllowance">
+                                                <div class="form-group">
+                                                    <label for="editingAllowance">Allowance*</label>
+                                                    <input type="text" name="editingAllowance" class="form-control " id="editingAllowance"
+                                                           placeholder="Enter Allowance" aria-describedby="exampleInputRole-error"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3"  id="editingdivTDS">
+                                                <div class="form-group">
+                                                    <label for="TDS">TDS*</label>
+                                                    <input type="text" name="editingTDS" class="form-control " id="editingTDS"
+                                                           placeholder="Enter TDS" aria-describedby="exampleInputRole-error"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                        </br> </br>
+                                        <div class="row">
+
+
+
+
+                                        </div>
+                                        </br>
+                                        <div>
+
+                                            <label onclick="AddEmployees('editing')" class="float-left btn btn-primary">Save</label>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                            <div class="card flex-fill" style="box-shadow: 2px 2px 2px 2px #D9D9D9">
+                                <div class="card-header">
+
+                                    <h5 class="card-title mb-0">Employee List</h5>
+                                </div>
+                                <table id="EmployeeTable" class="table table-hover my-0">
+                                    <thead class="bg-gray-light">
+                                        <tr class="text-gray-dark">
+
+                                            <th class="d-none d-xl-table-cell">Action</th>
+                                            <th class="d-none d-xl-table-cell">Name</th>
+                                            <th class="d-none d-xl-table-cell">Data Of Joining</th>
+                                            <th class="d-none d-xl-table-cell">Type</th>
+                                            <th class="d-none d-xl-table-cell">Basic Salary</th>
+                                            <th class="d-none d-xl-table-cell">Allowance</th>
+                                            <th class="d-none d-xl-table-cell">HRA</th>
+                                            <th class="d-none d-xl-table-cell">TDS</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Action</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Name</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Data Of Joining</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Type</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Basic Salary</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Allowance</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">HRA</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">TDS</th>
+
+
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Monthly Sales</h5>
+                </div>
+                <div class="card-body d-flex w-100">
+                    <div class="align-self-center chart chart-lg">
+                        <canvas id="chartjs-dashboard-bar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+                    </div>
+
+                    <div class="row">
+
+                        <!-- <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Monthly Sales</h5>
+                </div>
+                <div class="card-body d-flex w-100">
+                    <div class="align-self-center chart chart-lg">
+                        <canvas id="chartjs-dashboard-bar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+                    </div>
+
+                </div>
+            </main>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-left">
+                            <p class="mb-0">
+                                <a href="../Home/Payroll" class="text-muted"><strong>MyChartedCompany</strong></a> &copy;
+                            </p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="Help">Support</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="Help">Help Center</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Privacy</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Terms</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+   
+    <script src="~/Scripts/app.js"></script>
+
+  
+
+</body>
+
+</html>
+
+
+<script>
+
+    function AddEmployees(param) {
+        param === undefined ? param = "" : param;
+        var URL = '';
+        var model = {};
+        if (param == 'editing') {
+            URL = "../Home/EditEmployee";
+            model.id = window.empId;
+        }
+        else {
+            URL = "../Home/AddNewEmployee";
+        }
+
+
+
+           
+        model.Name = document.getElementById(param+"UserName").value;
+        
+        model.Type = document.getElementById(param+"EmployeeType").value;
+        model.DataOfJoining = document.getElementById(param + "DateOfJoin").value;
+
+        model.HRA = document.getElementById(param + "HRA").value;
+        model.TDS = document.getElementById(param + "TDS").value;
+        model.Allowance = document.getElementById(param + "Allowance").value;
+        model.BasicSal = document.getElementById(param + "basicsal").value;
+
+
+
+        
+        //model.MinimumStipend = document.getElementById(param + "MinStip").value;
+        if (document.getElementById('AutoSalaryCheckBox').checked ) {
+            model.TakeCustomSalaryYN = 0;
+        }
+        else {
+            model.TakeCustomSalaryYN = 1;
+            model.CustomSalary = document.getElementById(param + 'Salary').value;
+        }
+        
+        
+        //model.phone = document.getElementById(param+"MobileNumber").value;
+        //model.AccountNo = document.getElementById(param+"AccNo").value;
+
+
+        $.ajax({
+            url: URL, // endpoint
+            type: "POST",
+
+            data: JSON.stringify(model),
+
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                if (result) {
+
+                    window.location.reload();
+                }
+                // success
+            },
+            error: function (errorData) { alert(errorData) }
+        });
+
+
+
+
+    }
+
+
+
+    function validateIsRequiredFields(param) {
+        param === undefined ? param = "" : param;
+        // var elem = document.getElementsByTagName('input');
+        var elem = document.forms[param + "PayrollForm"].elements;
+        for (i = 0; i < elem.length; i++) {
+            if (elem[i].hasAttribute('required')) {
+                if (elem[i].getAttribute('type') == 'checkbox') {
+                    if (elem[i].checked) {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+                    }
+                    else {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+                    }
+
+                }
+
+                else {
+
+                    if (elem[i].value.length == 0 || elem[i].value == "DEF" || elem[i].value == "0" || elem[i].value == null) {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+
+                    }
+                    else {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    function emptypechanged(param) {
+        param === undefined ? param = "" : param;
+        // var elem = document.getElementsByTagName('input');
+        if (document.getElementById("EmployeeType").value == "Employee") {
+            document.getElementById("divAutoSalaryCheckBox").style.display = "none";
+            document.getElementById("divSalary").style.display = "none";
+            document.getElementById("divbasicsal").style.display = "block";
+            document.getElementById("divHRA").style.display = "block";
+            document.getElementById("divAllowance").style.display = "block";
+            document.getElementById("divTDS").style.display = "block";
+          
+            
+            
+            
+        }
+        else {
+            document.getElementById("divbasicsal").style.display = "none";
+            document.getElementById("divHRA").style.display = "none";
+            document.getElementById("divAllowance").style.display = "none";
+            document.getElementById("divTDS").style.display = "none";
+           
+            document.getElementById("divAutoSalaryCheckBox").style.display = "block";
+            document.getElementById("divSalary").style.display = "block";
+        }
+
+
+
+
+        var elem = document.forms[param + "PayrollForm"].elements;
+        for (i = 0; i < elem.length; i++) {
+            if (elem[i].hasAttribute('required')) {
+                if (elem[i].getAttribute('type') == 'checkbox') {
+                    if (elem[i].checked) {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+                    }
+                    else {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+                    }
+
+                }
+
+                else {
+
+                    if (elem[i].value.length == 0 || elem[i].value == "DEF" || elem[i].value == "0" || elem[i].value == null) {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+
+                    }
+                    else {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    $(document).ready(function () {
+    $.ajax({
+        url: '../Home/GetEmployeeList',
+        method: 'Get',
+        //data: { ddlid: '01' },          // this is input parameter for your function
+        dataType: 'json',
+        contentType: 'text/json',
+        success: function (res) {
+
+            var data = [];
+            for (var i = 0; i < res.length; i++) {
+                if (res[i]["Type"] == 'Employee') {
+                    data.push(['<i onclick=funtnEditEmployee(' + res[i]["Id"] + ') class="fa fa-pen faa-wrench">    Edit</i>&nbsp;&nbsp;&nbsp;<i onclick=funtnDeleteEmployee(' + res[i]["Id"] + ') class="fa fa-trash faa-wrench">    Delete</i>', res[i]["Name"], new Date(res[i]["DataOfJoining"]).toUTCString().split(':')[0].substring(0, new Date(res[i]["DataOfJoining"]).toUTCString().split(':')[0].length - 3), res[i]["Type"], res[i]["BasicSal"], res[i]["Allowance"], res[i]["HRA"], res[i]["TDS"]]);
+                }
+                else {
+
+                    data.push(['<i onclick=funtnDeleteEmployee(' + res[i]["Id"] + ') class="fa fa-trash faa-wrench" style="position: relative;left: 34%;">    Delete</i>', res[i]["Name"], new Date(res[i]["DataOfJoining"]).toUTCString().split(':')[0].substring(0, new Date(res[i]["DataOfJoining"]).toUTCString().split(':')[0].length - 3), res[i]["Type"], res[i]["BasicSal"], res[i]["Allowance"], res[i]["HRA"], res[i]["TDS"]]);
+                }
+                }
+
+            //End Test Data
+
+            t = $("#EmployeeTable").DataTable({
+
+                "dom": "<'row'<'col-md-6'B><'col-md-1'r><'col-md-3'f><'col-md-1'l>A>" +
+                    "<'row'<'col-md-12't>><'row'<'col-md-6'i><'col-md-6'p>>",
+
+                "data": data,
+
+                //"alphabetSearch": {
+                //    "column": 2
+                //},
+
+                "select": {
+                    "style": 'multi',
+                    "selector": 'td:first-child'
+                },
+
+                "paging": true,
+                "deferRender": true,
+                "responsive": true,
+                'info': true,
+                "lengthMenu": [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ],
+                "autoWidth": false,
+                "order": [
+                    [1, "asc"]
+                ],
+                "buttons": ['colvis', 'copy', 'csv', 'excel', 'pdf', 'print'],
+                "fixedHeader": {
+                    "header": true,
+                    //"footer": true,
+                    "headerOffset": $('#nav-bar-id').innerHeight(),
+                },
+
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                }
+
+            });
+
+            // t.on('order.dt search.dt', function () {
+            //     t.column(1, {
+            //         search: 'applied',
+            //         order: 'applied'
+            //     }).nodes().each(function (cell, i) {
+            //         cell.innerHTML = i + 1;
+            //     });
+            //
+            // }).draw();
+
+
+        }
+    });
+    });
+
+    function funtnEditEmployee(data) {
+         $('#DescModal').modal("show");
+
+
+                     $.ajax({
+                cache: false,
+                type: "Get",
+                         url: '../Home/GetEmployeeList',
+                         data: { "ID": data, "subregParamYN": "N"  },
+                         success: function (json) {
+                             window.empId=data;
+                             $('#editingUserName').val(json[0]["Name"]);
+                             $('#editingEmployeeType').val(json[0]["Type"]).change();
+                             //$('#editingMobileNumber').val(json[0]["phone"]);
+
+                             //$('#editingAccNo').val(json[0]["AccountNo"]);
+                             $('#editingDateOfJoin').val(json[0]["DataOfJoining"]);
+                             $('#editingbasicsal').val(json[0]["BasicSal"]);
+                             $('#editingHRA').val(json[0]["HRA"]);
+                             $('#editingAllowance').val(json[0]["Allowance"]);
+                             $('#editingTDS').val(json[0]["TDS"]);
+                            // $('#editingMinStip').val(json[0]["MinimumStipend"]);
+                             
+                           
+                             document.getElementById('editingUserName').classList.remove("is-invalid");
+                             document.getElementById('editingUserName').classList.add("is-valid");
+                             document.getElementById('editingEmployeeType').classList.remove("is-invalid");
+                             document.getElementById('editingEmployeeType').classList.add("is-valid");
+                            
+                             //document.getElementById('editingAccNo').classList.remove("is-invalid");
+                             //document.getElementById('editingAccNo').classList.add("is-valid");
+                             document.getElementById('editingDateOfJoin').classList.remove("is-invalid");
+                             document.getElementById('editingDateOfJoin').classList.add("is-valid");
+                            // document.getElementById('editingMinStip').classList.remove("is-invalid");
+                            // document.getElementById('editingMinStip').classList.add("is-valid");
+
+
+
+                             if (document.getElementById("editingEmployeeType").value == "Employee") {
+                                // document.getElementById("editingdivAutoSalaryCheckBox").style.display = "none";
+                                 //document.getElementById("editingdivSalary").style.display = "none";
+                                 document.getElementById("editingdivbasicsal").style.display = "block";
+                                 document.getElementById("editingdivHRA").style.display = "block";
+                                 document.getElementById("editingdivAllowance").style.display = "block";
+                                 document.getElementById("editingdivTDS").style.display = "block";
+
+                                 document.getElementById('editingdivbasicsal').classList.remove("is-invalid");
+                                 document.getElementById('editingdivbasicsal').classList.add("is-valid");
+                                 document.getElementById('').classList.remove("is-invalid");
+                                 document.getElementById('editingdivHRA').classList.add("is-valid");
+                                 document.getElementById('editingdivAllowance').classList.remove("is-invalid");
+                                 document.getElementById('editingdivAllowance').classList.add("is-valid");
+                                 document.getElementById('editingdivTDS').classList.remove("is-invalid");
+                                 document.getElementById('editingdivTDS').classList.add("is-valid");
+
+
+                             }
+                             else {
+                                 document.getElementById("editingdivbasicsal").style.display = "none";
+                                 document.getElementById("editingdivHRA").style.display = "none";
+                                 document.getElementById("editingdivAllowance").style.display = "none";
+                                 document.getElementById("editingdivTDS").style.display = "none";
+
+                                 //document.getElementById("editingdivAutoSalaryCheckBox").style.display = "block";
+                                 //document.getElementById("editingdivSalary").style.display = "block";
+
+                                 //document.getElementById('editingdivSalary').classList.remove("is-invalid");
+                                 //document.getElementById('editingdivSalary').classList.add("is-valid");
+                                 
+                             }
+
+
+                },
+                error: function () {
+                    alert("Data Not Found");
+                }
+            });
+
+    }
+
+    function salaryToggle(element) {
+        var hieIds = '';
+        var multisel = 0;
+        var hieIdsarray = new Array();
+        if (element.checked) {
+           
+           
+            getSalaryByDoj(document.getElementById('DateOfJoin').value);
+           
+            
+        }
+        else {
+            
+            if (document.getElementById('Salary').value == 0 || document.getElementById('Salary').value.length==0) {
+                $("#Salary").removeClass("is-valid");
+                $("#Salary").addClass("is-invalid");
+            }
+            $("#Salary").prop("disabled", false);
+
+        }
+    }
+
+    function funtnDeleteEmployee(data) {
+        $.ajax({
+            cache: false,
+            type: "Post",
+            url: '../Home/DeleteEmployeeList',
+            data: { "ID": data },
+            success: function (json) {
+                window.location.reload();
+
+            },
+            error: function () {
+                alert("Data Not Found");
+            }
+        });
+    }
+
+    function getSalaryByDoj(doj) {
+        $.ajax({
+            cache: false,
+            type: "Get",
+            url: '../Home/GetSalaryByJoiningDate',
+            data: { "doj": doj },
+            success: function (json) {
+                document.getElementById('Salary').value = (json);
+                $("#Salary").removeClass("is-invalid");
+                $("#Salary").addClass("is-valid");
+                $("#Salary").prop("disabled", true);
+            },
+            error: function () {
+                alert("Data Not Found");
+            }
+        });
+
+    }
+
+    function dojchanged(param) {
+        param === undefined ? param = "" : param;
+        var elem = document.forms[param + "PayrollForm"].elements;
+        for (i = 0; i < elem.length; i++) {
+            if (elem[i].hasAttribute('required')) {
+                if (elem[i].getAttribute('type') == 'checkbox') {
+                    if (elem[i].checked) {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+                    }
+                    else {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+                    }
+
+                }
+
+                else {
+
+                    if (elem[i].value.length == 0 || elem[i].value == "DEF" || elem[i].value == "0") {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+
+                    }
+                    else {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+
+                    }
+
+                }
+            }
+        }
+
+        if (document.getElementById('DateOfJoin').value.length > 0 && document.getElementById("AutoSalaryCheckBox").checked ){
+            getSalaryByDoj(document.getElementById('DateOfJoin').value);
+            
+
+        }
+        
+        if (document.getElementById('DateOfJoin').value.length > 0) {
+            $("#AutoSalaryCheckBox").prop("disabled", false);
+        }
+        else {
+            $("#AutoSalaryCheckBox").prop("disabled", true);
+            if (document.getElementById("AutoSalaryCheckBox").checked == true) {
+                document.getElementById("AutoSalaryCheckBox").checked = false;
+                document.getElementById("Salary").value=null;
+                $("#Salary").prop("disabled", false);
+                document.getElementById("Salary").classList.remove("is-valid");
+                document.getElementById("Salary").classList.add("is-invalid");
+            }
+           
+           
+        }
+
+
+
+    }
+
+
+
+</script>

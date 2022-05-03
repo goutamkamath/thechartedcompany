@@ -1,0 +1,1028 @@
+﻿
+@model TheChartedCompany.Models.FileUpload
+
+<html lang="en">
+<style>
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @@-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .buttons-excel {
+        left: 500% !important;
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <link rel="shortcut icon" href="~/Content/Images/icons/icon-48x48.png" />
+
+    <title>The Charted Company</title>
+
+    <link href="~/Content/CSS/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Plugins/fontawesome-free/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @*<link rel="stylesheet" href="~/Plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/Plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/Plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/Plugins/datatables-fixedheader/css/fixedHeader.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/Plugins/datatables-select/css/select.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/Adminlte/dist/css/datatable_alphabetsearch.css">*@
+
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+
+    <script src=" https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="index.html">
+                    <span class="align-middle">MANIAN & RAO</span>
+                    <label style="font-size: 12px">Chartered Accountants</label>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Pages
+                    </li>
+
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="Payroll">
+                            <i class="align-middle" data-feather="dollar-sign"></i> <span class="align-middle">Payroll Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="LeaveManagement">
+                            <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Leave Management</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle d-flex">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <form class="d-none d-sm-inline-block">
+                    <div class="input-group input-group-navbar">
+
+                    </div>
+                </form>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+
+
+                        </li>
+                        <li class="nav-item dropdown">
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+                                <img src="~/Content/Images/avatars/avatar-3.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">HR Login</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+
+                                <a class="dropdown-item" href="AddEmployee"><i class="align-middle mr-1" data-feather="users"></i> Manage Employees</a>
+                                <a class="dropdown-item" href="Holidays"><i class="align-middle mr-1" data-feather="clock"></i> Manage Holidays</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="Setting"><i class="align-middle mr-1" data-feather="settings"></i> Settings</a>
+                                <a class="dropdown-item" href="Help"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="content" style="background-image: url('/Content/Images/m5.png') ">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-auto d-none d-sm-block">
+                            <h3>Payroll Management</h3>
+                        </div>
+                        <span>
+                            <i style="font-size: 15px;cursor:pointer;position: relative; right: -83%;top: 140%;" class="fa" onclick="clearlogs()"></i><span style="color: blue;position: relative; right: -84%; cursor: pointer;top: 140%;" onclick="clearlogs()">Clear All the Logs</span>
+                        </span>
+                        <ul class="nav nav-tabs card-header-tabs pull-right" role="tablist">
+                            <li class="nav-item" style="margin-left: 1.8%;color:#FFFFFF;">
+                                <a class="nav-link active" data-toggle="tab" href="#tab-4"><b>Work Reports</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab-5">Conveyance</a>
+                            </li>
+                            @*<li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-6">Manual Payroll Generation</a>
+                                </li>*@
+
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body tab-content">
+                            <div class="tab-pane fade show active" style="width:205%" id="tab-4" role="tabpanel">
+                                @using(Html.BeginForm("UploadExcel", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                            @Html.AntiForgeryToken()
+
+                                            
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                                <div>
+                                    @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </div>
+                                        <input type="file" name="ImageFile" required />
+
+
+
+                                        
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Upload Sheet" class="btn btn-primary" style="position: relative;top: 14px;" />
+                                            </div>
+                                        
+                                        }
+                                        <form role="form" id="PayrollForm" novalidate="novalidate">
+                                            <div class="row">
+
+
+
+
+
+
+
+
+                                            </div>
+                                            </br> </br>
+
+                                                            <div class="row">
+
+
+
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="payrollmonth"></label>
+                                                                        <select id="payrollmonth" class="form-select mb-3 is-invalid"
+                                                                                aria-describedby="payrollmonth-error" style="width: 44%;" oninput="validateIsRequiredFields()" required>
+                                                                            <option class="text-muted" value=0>
+                                                                                Please Select Payroll Month
+                                                                            </option>
+                                                                            <option class="text-muted" value=1>
+                                                                                January
+                                                                            </option>
+                                                                            <option class="text-muted" value=2>
+                                                                                February
+                                                                            </option>
+                                                                            <option class="text-muted" value=3>
+                                                                                March
+                                                                            </option>
+                                                                            <option class="text-muted" value=4>
+                                                                                April
+                                                                            </option>
+                                                                            <option class="text-muted" value=5>
+                                                                                May
+                                                                            </option>
+                                                                            <option class="text-muted" value=6>
+                                                                                June
+                                                                            </option>
+                                                                            <option class="text-muted" value=7>
+                                                                                July
+                                                                            </option>
+
+                                                                            <option class="text-muted" value=8>
+                                                                                August
+                                                                            </option>
+                                                                            <option class="text-muted" value=9>
+                                                                                September
+                                                                            </option>
+                                                                            <option class="text-muted" value=10>
+                                                                                October
+                                                                            </option>
+                                                                            <option class="text-muted" value=11>
+                                                                                November
+                                                                            </option>
+                                                                            <option class="text-muted" value=12>
+                                                                                December
+                                                                            </option>
+
+
+                                                                        </select>
+                                                                        <span id="usersOrgList-error" class="error invalid-feedback ">
+                                                                            Please select month
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div> </br>
+                                                                                            <div>
+                                                                                                <label class="btn btn-primary" onclick="CheckModalPopup()">Generate Payroll</label>
+                                                                                            </div>
+                                                                                                        </form>
+                                                                                                                    </div>
+
+
+
+                                                                                                                                    <div class="tab-pane fade text-center" id="tab-5" role="tabpanel">
+                                                                                                                                        </br>
+                                                                                                                                                        <div class="card-body">
+                                                                                                                                                            <form role="form" id="PayrollForm" novalidate="novalidate">
+
+
+
+                                                                                                                                                                <div class="row">
+
+
+                                                                                                                                                                    <label for="myfile" style="color: #3B7DDD;left: -26.5%; position: relative;">Please dump all the excel in C:\Payroll\Conveyance and click Add Conveyance</label>
+                                                                                                                                                                    <div class="col-md-3">
+                                                                                                                                                                        <div class="form-group">
+
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+
+
+                                                                                                                                                                </div>
+
+                                                                                                                                                                </br>
+                                                                                                                                                                                <div>
+                                                                                                                                                                                    <label class="btn btn-primary" onclick="AddConveyance()" style="position: relative; left: -44%;">Add Conveyance</label>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                            </form>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                    </div>
+
+
+                                                                                                                                                                                                                                    <div class="tab-pane fade text-center" id="tab-6" role="tabpanel">
+                                                                                                                                                                                                                                        </br>
+                                                                                                                                                                                                                                                        <div class="card-body">
+                                                                                                                                                                                                                                                            <form role="form" id="ManualPayrollForm" novalidate="novalidate">
+
+
+
+
+                                                                                                                                                                                                                                                                <div class="row">
+
+                                                                                                                                                                                                                                                                    <div class="col-md-3">
+                                                                                                                                                                                                                                                                        <div class="form-group">
+                                                                                                                                                                                                                                                                            <label for="ArticleList" style="position: relative;left: -39%;">Articles*</label>
+                                                                                                                                                                                                                                                                            <select id="ArticleList" class="form-control select2bs4 is-invalid"
+                                                                                                                                                                                                                                                                                    aria-describedby="ArticleList-error" style="width: 100%;" onchange="validateIsRequiredFieldsManualPayroll()" required>
+                                                                                                                                                                                                                                                                                @{ foreach (var item in ViewBag.ArticleList)
+                                                                                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                                                                    <option class="text-muted" value="@item.Key">
+                                                                                                                                                                                                                                                                        @item.Value
+                                                                                                                                                                                                                                                                    </option>
+ } }
+                                                                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                                                                            <span id="exampleInputName-error" class="error invalid-feedback" style="position: relative;left: -30%;">
+                                                                                                                                                                                                                                                                                Please select Article
+
+                                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                                                    <div class="col-md-3">
+                                                                                                                                                                                                                                                                        <div class="form-group">
+                                                                                                                                                                                                                                                                            <label for="PayrollFrom" style="position: relative;left: -33%;">Payroll From*</label>
+                                                                                                                                                                                                                                                                            <input type="date" name="PayrollFrom" class="form-control is-invalid" id="PayrollFrom"
+                                                                                                                                                                                                                                                                                   placeholder="Enter Payroll From" aria-describedby="PayrollFrom-error" oninput="validateIsRequiredFieldsManualPayroll()"
+                                                                                                                                                                                                                                                                                   autocomplete="off" required />
+
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                                                    <div class="col-md-3">
+                                                                                                                                                                                                                                                                        <div class="form-group">
+                                                                                                                                                                                                                                                                            <label for="PayrollTo" style="position: relative;left: -36%;">Payroll To*</label>
+                                                                                                                                                                                                                                                                            <input type="date" name="PayrollTo" class="form-control is-invalid" id="PayrollTo"
+                                                                                                                                                                                                                                                                                   placeholder="Enter PayollTo" aria-describedby="DateOfJoin-error" oninput="validateIsRequiredFieldsManualPayroll()"
+                                                                                                                                                                                                                                                                                   autocomplete="off" required />
+
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                </br>
+                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                    <label class="btn btn-primary" onclick="GenerateManualPayroll()" style="position: relative; left: -44%;">Generate Payroll</label>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                            </form>
+                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                </div>
+                    </div>
+                    <div class="modal fade" id="ConfirmationModal" role="dialog">
+                        <div class="modal-dialog" style="height: 69%;">
+                            <div class="modal-content" style="height: 44%;width:101%;left:12%;position: relative;margin-top:23% !important">
+
+                                <div class="modal-body">
+                                    <h5 class="text-center"></h5>
+                                    <span><b> Please confim 1.25 monthly leaves were credited and leave repository is latest in 'Leave Management'</b></span>
+                                </div>
+                                <div style="position: relative;top: -7%;left: 2%;">
+
+                                    <span> <label onclick="GeneratePayroll()" class="float-left btn btn-success">Yes, Generate Payroll</label></span>
+                                    <span><label onclick="yettoupdate()" class="float-left btn btn-info" style="left: 3%;position: relative;">Yet to update</label></span>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+                    <div class="modal fade" id="DescModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="width:148%;left:-17%;margin-top:23% !important">
+                                <div class="modal-header">
+
+                                    <h3 class="modal-title" id="headerForBranchName"><b>Payroll Details</b></h3>
+
+                                </div>
+
+                                <div class="modal-body">
+                                    <h5 class="text-center"></h5>
+                                    <form role="form" id="editingPayrollForm" novalidate="novalidate">
+
+                                        <div class="row">
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingName">Name</label>
+                                                    <input type="text" name="editingName" class="form-control" id="editingName"
+                                                           placeholder="" aria-describedby="editingexampleInputRole-error"
+                                                           autocomplete="off" readonly />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingSalary">Salary/Stipend*</label>
+                                                    <input type="text" name="editingSalary" class="form-control is-invalid" id="editingSalary"
+                                                           placeholder="Enter Salary" aria-describedby="editingexampleInputRole-error" oninput="calculateTotalSalary()"
+                                                           autocomplete="off" required />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingBonus">Bonus</label>
+                                                    <input type="text" name="editingBonus" class="form-control" id="editingBonus"
+                                                           placeholder="Enter Bonus" aria-describedby="editingexampleInputRole-error" oninput="calculateTotalSalary()"
+                                                           autocomplete="off" />
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingConveyance">Conveyance</label>
+                                                    <input type="text" name="editingHolidayOn" class="form-control " id="editingConveyance"
+                                                           placeholder="Enter Conveyance" aria-describedby="editingexampleInputRole-error" oninput="calculateTotalSalary()"
+                                                           autocomplete="off" />
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingPT">PT</label>
+                                                    <input type="text" name="editingPT" class="form-control " id="editingPT"
+                                                           placeholder="Enter PT" aria-describedby="editingexampleInputRole-error" oninput="calculateTotalSalary()"
+                                                           autocomplete="off" />
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="editingTotal">Total</label>
+                                                    <input type="number" name="editingTotal" class="form-control" id="editingTotal"
+                                                           placeholder="" aria-describedby="editingexampleInputRole-error"
+                                                           autocomplete="off" readonly />
+
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                        </br> </br>
+                                        <div class="row">
+
+
+
+
+                                        </div>
+                                        </br>
+                                        <div>
+
+                                            <label onclick="UpdatePayroll()" class="float-left btn btn-primary">Save</label>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+                    <div class="modal fade" id="LoaderModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="width: 0%;left: 45%;margin-top: 41% !important;">
+
+                                <div class="modal-body">
+                                    <div class="loader" id="loader" style="position: relative;left: 37%;display: block;"></div>
+                                </div>
+
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                            <div class="card flex-fill">
+                                <div class="card-header">
+
+                                    <h5 class="card-title mb-0">Payroll Details</h5>
+                                </div>
+                                <div>
+                                    <i style="font-size: 15px;cursor:pointer;position: relative; right: -69%;top: -169%;" class="fa" onclick="SyncLeaves()"></i><span style="position: relative;left: 70%;top: -177%;color:blue" onclick="SyncLeaves()">Sync below New Leave Repository to Master</span>
+                                </div>
+                                <table id="PayrollTable" class="table table-hover my-0">
+                                    <thead class="bg-gray-light">
+                                        <tr class="text-gray-dark">
+
+
+                                            <th class="d-none d-xl-table-cell">Action</th>
+                                            <th class="d-none d-xl-table-cell">Sl No</th>
+                                            <th class="d-none d-xl-table-cell">Name</th>
+                                            <th class="d-none d-md-table-cell">Total</th>
+                                            <th class="d-none d-xl-table-cell">Salary/Stipend</th>
+                                            <th>Bonus</th>
+                                            <th class="d-none d-md-table-cell">Conveyance</th>
+                                            <th class="d-none d-md-table-cell">PT</th>
+                                            <th class="d-none d-md-table-cell">Opening Leave Balance</th>
+                                            <th class="d-none d-md-table-cell">Leaves this Month</th>
+                                            <th class="d-none d-md-table-cell">Leave Credit</th>
+
+                                            <th class="d-none d-md-table-cell">New Leave Repository</th>
+
+                                            <th>Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Action</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Sl No</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Name</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">Total</th>
+                                            <th class="d-none d-xl-table-cell" style="display:none !important">Salary/Stipend</th>
+                                            <th style="display:none !important">Bonus</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">Conveyance</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">PT</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">Opening Leave Balance</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">Leaves this Month</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">Leave Credit</th>
+                                            <th class="d-none d-md-table-cell" style="display:none !important">New Leave Repository</th>
+                                            <th style="display:none !important">Status</th>
+
+                                        </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+                            <div class="card flex-fill w-100">
+                                <div class="card-header">
+
+                                    <h5 class="card-title mb-0">Monthly Sales</h5>
+                                </div>
+                                <div class="card-body d-flex w-100">
+                                    <div class="align-self-center chart chart-lg">
+                                        <canvas id="chartjs-dashboard-bar"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+
+                </div>
+            </main>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-left">
+                            <p class="mb-0">
+                                <a href="../Home/Payroll" class="text-muted"><strong>MyChartedCompany</strong></a> &copy;
+                            </p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="Help">Support</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="Help">Help Center</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Privacy</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-muted" href="#">Terms</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/Scripts/app.js"></script>
+
+
+
+</body>
+
+</html>
+
+
+<script>
+
+
+    function validateIsRequiredFields(param) {
+        param === undefined ? param = "" : param;
+        // var elem = document.getElementsByTagName('input');
+        var elem = document.forms[param + "PayrollForm"].elements;
+        for (i = 0; i < elem.length; i++) {
+            if (elem[i].hasAttribute('required')) {
+                if (elem[i].getAttribute('type') == 'checkbox') {
+                    if (elem[i].checked) {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+                    }
+                    else {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+                    }
+
+                }
+
+                else {
+
+                    if (elem[i].value.length == 0 || elem[i].value == "DEF" || elem[i].value == "0") {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+
+                    }
+                    else {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    function validateIsRequiredFieldsManualPayroll(param) {
+        param === undefined ? param = "" : param;
+        // var elem = document.getElementsByTagName('input');
+        var elem = document.forms[param + "ManualPayrollForm"].elements;
+        for (i = 0; i < elem.length; i++) {
+            if (elem[i].hasAttribute('required')) {
+                if (elem[i].getAttribute('type') == 'checkbox') {
+                    if (elem[i].checked) {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+                    }
+                    else {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+                    }
+
+                }
+
+                else {
+
+                    if (elem[i].value.length == 0 || elem[i].value == "DEF" || elem[i].value == "0") {
+                        elem[i].classList.remove("is-valid");
+                        elem[i].classList.add("is-invalid");
+
+                    }
+                    else {
+                        elem[i].classList.remove("is-invalid");
+                        elem[i].classList.add("is-valid");
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    function GeneratePayroll() {
+
+        $('#ConfirmationModal').modal("hide");
+        if (document.getElementById("payrollmonth").value == 0) {
+            alert("Please Select Month");
+        }
+        else {
+
+            //  document.getElementById('loader').style.display = "block";
+            $('#LoaderModal').modal("show");
+            if (document.getElementById('payrollmonth').value) {
+                $.ajax({
+                    url: "../Home/GeneratePayroll", // endpoint
+                    type: "POST",
+
+                    data: { "monthId": document.getElementById('payrollmonth').value },
+                    success: function (result) {
+
+                        if (result) {
+
+                            window.location.reload();
+                        }
+                        // success
+                    },
+                    error: function (errorData) { onError(errorData); }
+                });
+            }
+        }
+
+    }
+
+    function GenerateManualPayroll() {
+        if (document.getElementById("ArticleList").value == 0) {
+            alert("Please Select Article");
+        }
+        else {
+
+            //  document.getElementById('loader').style.display = "block";
+            $('#LoaderModal').modal("show");
+
+            $.ajax({
+                url: "../Home/GeneratePayroll", // endpoint
+                type: "POST",
+
+                data: {
+                    "empid": document.getElementById('ArticleList').value, "manualpayrollYN": true, "manualfromdate": document.getElementById('PayrollFrom').value, "manualtodate": document.getElementById('PayrollTo').value
+                },
+
+                success: function (result) {
+
+                    if (result) {
+
+                        window.location.reload();
+                    }
+                    // success
+                },
+                error: function (errorData) { onError(errorData); }
+            });
+
+        }
+
+    }
+
+
+    $(document).ready(function () {
+        //document.getElementById('loader').style.display = "none";
+        $.ajax({
+            url: '../Home/GetPayrollList',
+            method: 'Get',
+            //data: { ddlid: '01' },          // this is input parameter for your function
+            dataType: 'json',
+            contentType: 'text/json',
+            success: function (res) {
+
+                var data = [];
+                for (var i = 0; i < res.length; i++) {
+
+                    if (res[i]["Status"] == 'Success') {
+                        data.push(['<i onclick=funtnEditPayroll(' + res[i]["Id"] + ') class="fa fa-pen faa-wrench">    Edit</i>', i + 1, res[i]["Name"], res[i]["Salary"] + res[i]["Bonus"] + res[i]["Conveyance"] - res[i]["PT"], res[i]["Salary"], res[i]["Bonus"], res[i]["Conveyance"], res[i]["PT"], res[i]["Leaves"], res[i]["LeavesTakenThisMonth"], res[i]["LeaveCredit"], res[i]["NewLeavesRepo"], '<span class="badge bg-success" > ' + res[i]["Status"] + '</span>']);
+                    }
+                    else {
+
+
+                        data.push(['<i onclick=funtnEditPayroll(' + res[i]["Id"] + ') class="fa fa-pen faa-wrench">    Edit</i>', i + 1, res[i]["Name"], res[i]["Salary"] + res[i]["Bonus"] + res[i]["Conveyance"] - res[i]["PT"], res[i]["Salary"], res[i]["Bonus"], res[i]["Conveyance"], res[i]["PT"], res[i]["Leaves"], res[i]["LeavesTakenThisMonth"], res[i]["LeaveCredit"], res[i]["NewLeavesRepo"], '<span class="badge bg-danger" > No Work Sheet</span >']);
+                    }
+                }
+
+                //End Test Data
+
+                t = $("#PayrollTable").DataTable({
+
+                    "dom": "<'row'<'col-md-6'B><'col-md-1'r><'col-md-3'f><'col-md-1'l>A>" +
+                        "<'row'<'col-md-12't>><'row'<'col-md-6'i><'col-md-6'p>>",
+
+                    "data": data,
+
+                    "alphabetSearch": {
+                        "column": 2
+                    },
+
+                    "select": {
+                        "style": 'multi',
+                        "selector": 'td:first-child'
+                    },
+
+                    "paging": true,
+                    "deferRender": true,
+                    "responsive": true,
+                    'info': true,
+                    "lengthMenu": [
+                        [10, 25, 50, 100, -1],
+                        [10, 25, 50, 100, "All"]
+                    ],
+                    "autoWidth": false,
+                    "order": [
+                        [1, "asc"]
+                    ],
+                    "buttons": [
+                        {
+                            extend: 'excel',
+                            text: 'Export to Excel',
+                            exportOptions: {
+                                modifier: {
+                                    page: 'current'
+                                },
+                                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                            },
+
+                            style: "left:500%;"
+                        }
+                    ],
+                    "fixedHeader": {
+                        "header": true,
+                        //"footer": true,
+                        "headerOffset": $('#nav-bar-id').innerHeight(),
+                    },
+
+                    initComplete: function () {
+                        // Apply the search
+                        this.api().columns().every(function () {
+                            var that = this;
+
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            });
+                        });
+                    }
+
+                });
+
+                // t.on('order.dt search.dt', function () {
+                //     t.column(1, {
+                //         search: 'applied',
+                //         order: 'applied'
+                //     }).nodes().each(function (cell, i) {
+                //         cell.innerHTML = i + 1;
+                //     });
+                //
+                // }).draw();
+
+
+            }
+        });
+    });
+    function funtnEditPayroll(data) {
+        $('#DescModal').modal("show");
+
+
+        $.ajax({
+            cache: false,
+            type: "Get",
+            url: '../Home/GetPayrollList',
+            data: { "ID": data, "subregParamYN": "N" },
+            success: function (json) {
+                window.payrollId = data;
+
+                $('#editingName').val(json[0]["Name"]);
+                $('#editingSalary').val(json[0]["Salary"]);
+                $('#editingConveyance').val(json[0]["Conveyance"]);
+                $('#editingBonus').val(json[0]["Bonus"]);
+                $('#editingTotal').val(json[0]["Salary"] + json[0]["Conveyance"] + json[0]["Bonus"]);
+
+
+
+
+                document.getElementById('editingSalary').classList.remove("is-invalid");
+                document.getElementById('editingSalary').classList.add("is-valid");
+
+
+
+
+            },
+            error: function () {
+                alert("Data Not Found");
+            }
+        });
+
+    }
+
+    function calculateTotalSalary() {
+        let sum = 0;
+        sum = Number(document.getElementById('editingConveyance').value) + Number(document.getElementById('editingSalary').value) + Number(document.getElementById('editingBonus').value - Number(document.getElementById('editingPT').value));
+        $('#editingTotal').val(sum);
+
+
+    }
+
+    function UpdatePayroll() {
+
+
+        var model = {};
+        model.Id = window.payrollId;
+        model.Salary = document.getElementById('editingSalary').value;
+        model.Bonus = document.getElementById('editingBonus').value;
+        model.Conveyance = document.getElementById('editingConveyance').value;
+
+
+
+
+        $.ajax({
+            url: "../Home/EditPayroll", // endpoint
+            type: "POST",
+
+            data: JSON.stringify(model),
+
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                if (result) {
+
+                    window.location.reload();
+                }
+                // success
+            },
+            error: function (errorData) { alert(errorData) }
+        });
+    }
+
+    function AddConveyance() {
+        //document.getElementById('loader').style.display = "block";
+        $('#LoaderModal').modal("show");
+        $.ajax({
+            url: "../Home/AddConveyance", // endpoint
+            type: "POST",
+
+
+            success: function (result) {
+
+                if (result) {
+
+                    window.location.reload();
+                }
+                // success
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+
+    }
+    function clearlogs() {
+        $.ajax({
+            url: "../Home/DeleteLogs", // endpoint
+            type: "POST",
+
+
+            success: function (result) {
+
+                if (result) {
+
+                    window.location.reload();
+                }
+                // success
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+    }
+
+    function SyncLeaves() {
+        $.ajax({
+            url: "../Home/SyncLeaves", // endpoint
+            type: "POST",
+
+
+            success: function (result) {
+
+                if (result) {
+
+                    window.location.reload();
+                }
+                // success
+            },
+            error: function (errorData) { onError(errorData); }
+        });
+    }
+
+
+    function CheckModalPopup() {
+        $('#ConfirmationModal').modal("show");
+    }
+
+    function yettoupdate() {
+        window.location.href = "LeaveManagement";
+    }
+
+</script>

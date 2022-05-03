@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAF5ABEE-DB77-440E-8CD9-9E438E9765B6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheChartedCompany</RootNamespace>
+    <AssemblyName>TheChartedCompany</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44389</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=6.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.6.0.3\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BL\BL.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APIResult.cs" />
+    <Compile Include="Models\Data.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\FileUpload.cs" />
+    <Compile Include="Models\Holiday.cs" />
+    <Compile Include="Models\MinimumWage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\app.css" />
+    <Content Include="Content\CSS\style.css" />
+    <Content Include="Content\fonts\fa-brands-400.svg" />
+    <Content Include="Content\fonts\fa-regular-400.svg" />
+    <Content Include="Content\fonts\fa-solid-900.svg" />
+    <Content Include="Content\Images\avatars\avatar-2.jpg" />
+    <Content Include="Content\Images\avatars\avatar-3.jpg" />
+    <Content Include="Content\Images\avatars\avatar-4.jpg" />
+    <Content Include="Content\Images\avatars\avatar-5.jpg" />
+    <Content Include="Content\Images\avatars\avatar.jpg" />
+    <Content Include="Content\Images\Employees.jpg" />
+    <Content Include="Content\Images\icons\icon-48x48.png" />
+    <Content Include="Content\Images\logo.svg" />
+    <Content Include="Content\Images\manianandraologo.png" />
+    <Content Include="Content\Images\money.jpg" />
+    <Content Include="Content\Images\photos\unsplash-1.jpg" />
+    <Content Include="Content\Images\photos\unsplash-2.jpg" />
+    <Content Include="Content\Images\photos\unsplash-3.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Plugins\datatables-autofill\css\autoFill.bootstrap4.css" />
+    <Content Include="Plugins\datatables-autofill\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-autofill\js\autoFill.bootstrap4.js" />
+    <Content Include="Plugins\datatables-autofill\js\autoFill.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-autofill\js\dataTables.autoFill.js" />
+    <Content Include="Plugins\datatables-autofill\js\dataTables.autoFill.min.js" />
+    <Content Include="Plugins\datatables-bs4\css\dataTables.bootstrap4.css" />
+    <Content Include="Plugins\datatables-bs4\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-bs4\js\dataTables.bootstrap4.js" />
+    <Content Include="Plugins\datatables-bs4\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-buttons\css\buttons.bootstrap4.css" />
+    <Content Include="Plugins\datatables-buttons\css\buttons.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.bootstrap4.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.colVis.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.colVis.min.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.flash.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.flash.min.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.html5.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.html5.min.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.print.js" />
+    <Content Include="Plugins\datatables-buttons\js\buttons.print.min.js" />
+    <Content Include="Plugins\datatables-buttons\js\dataTables.buttons.js" />
+    <Content Include="Plugins\datatables-buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Plugins\datatables-colreorder\css\colReorder.bootstrap4.css" />
+    <Content Include="Plugins\datatables-colreorder\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-colreorder\js\colReorder.bootstrap4.js" />
+    <Content Include="Plugins\datatables-colreorder\js\colReorder.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-colreorder\js\dataTables.colReorder.js" />
+    <Content Include="Plugins\datatables-colreorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Plugins\datatables-fixedcolumns\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Plugins\datatables-fixedcolumns\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-fixedcolumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Plugins\datatables-fixedcolumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Plugins\datatables-fixedcolumns\js\fixedColumns.bootstrap4.js" />
+    <Content Include="Plugins\datatables-fixedcolumns\js\fixedColumns.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-fixedheader\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Plugins\datatables-fixedheader\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-fixedheader\js\dataTables.fixedHeader.js" />
+    <Content Include="Plugins\datatables-fixedheader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Plugins\datatables-fixedheader\js\fixedHeader.bootstrap4.js" />
+    <Content Include="Plugins\datatables-fixedheader\js\fixedHeader.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-keytable\css\keyTable.bootstrap4.css" />
+    <Content Include="Plugins\datatables-keytable\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-keytable\js\dataTables.keyTable.js" />
+    <Content Include="Plugins\datatables-keytable\js\dataTables.keyTable.min.js" />
+    <Content Include="Plugins\datatables-keytable\js\keyTable.bootstrap4.js" />
+    <Content Include="Plugins\datatables-keytable\js\keyTable.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-responsive\css\responsive.bootstrap4.css" />
+    <Content Include="Plugins\datatables-responsive\css\responsive.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-responsive\js\dataTables.responsive.js" />
+    <Content Include="Plugins\datatables-responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Plugins\datatables-responsive\js\responsive.bootstrap4.js" />
+    <Content Include="Plugins\datatables-responsive\js\responsive.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-rowgroup\css\rowGroup.bootstrap4.css" />
+    <Content Include="Plugins\datatables-rowgroup\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-rowgroup\js\dataTables.rowGroup.js" />
+    <Content Include="Plugins\datatables-rowgroup\js\dataTables.rowGroup.min.js" />
+    <Content Include="Plugins\datatables-rowgroup\js\rowGroup.bootstrap4.js" />
+    <Content Include="Plugins\datatables-rowgroup\js\rowGroup.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-rowreorder\css\rowReorder.bootstrap4.css" />
+    <Content Include="Plugins\datatables-rowreorder\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-rowreorder\js\dataTables.rowReorder.js" />
+    <Content Include="Plugins\datatables-rowreorder\js\dataTables.rowReorder.min.js" />
+    <Content Include="Plugins\datatables-rowreorder\js\rowReorder.bootstrap4.js" />
+    <Content Include="Plugins\datatables-rowreorder\js\rowReorder.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-scroller\css\scroller.bootstrap4.css" />
+    <Content Include="Plugins\datatables-scroller\css\scroller.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-scroller\js\dataTables.scroller.js" />
+    <Content Include="Plugins\datatables-scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Plugins\datatables-scroller\js\scroller.bootstrap4.js" />
+    <Content Include="Plugins\datatables-scroller\js\scroller.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-searchbuilder\css\searchBuilder.bootstrap4.css" />
+    <Content Include="Plugins\datatables-searchbuilder\css\searchBuilder.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-searchbuilder\js\dataTables.searchBuilder.js" />
+    <Content Include="Plugins\datatables-searchbuilder\js\dataTables.searchBuilder.min.js" />
+    <Content Include="Plugins\datatables-searchbuilder\js\searchBuilder.bootstrap4.js" />
+    <Content Include="Plugins\datatables-searchbuilder\js\searchBuilder.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-searchpanes\css\searchPanes.bootstrap4.css" />
+    <Content Include="Plugins\datatables-searchpanes\css\searchPanes.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-searchpanes\js\dataTables.searchPanes.js" />
+    <Content Include="Plugins\datatables-searchpanes\js\dataTables.searchPanes.min.js" />
+    <Content Include="Plugins\datatables-searchpanes\js\searchPanes.bootstrap4.js" />
+    <Content Include="Plugins\datatables-searchpanes\js\searchPanes.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables-select\css\select.bootstrap4.css" />
+    <Content Include="Plugins\datatables-select\css\select.bootstrap4.min.css" />
+    <Content Include="Plugins\datatables-select\js\dataTables.select.js" />
+    <Content Include="Plugins\datatables-select\js\dataTables.select.min.js" />
+    <Content Include="Plugins\datatables-select\js\select.bootstrap4.js" />
+    <Content Include="Plugins\datatables-select\js\select.bootstrap4.min.js" />
+    <Content Include="Plugins\datatables\jquery.dataTables.js" />
+    <Content Include="Plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="Plugins\fontawesome-free\css\all.css" />
+    <Content Include="Plugins\fontawesome-free\css\all.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app.js.LICENSE.txt" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="fonts\Inter-Black.woff" />
+    <Content Include="fonts\Inter-Black.woff2" />
+    <Content Include="fonts\Inter-BlackItalic.woff" />
+    <Content Include="fonts\Inter-BlackItalic.woff2" />
+    <Content Include="fonts\Inter-Bold.woff" />
+    <Content Include="fonts\Inter-Bold.woff2" />
+    <Content Include="fonts\Inter-BoldItalic.woff" />
+    <Content Include="fonts\Inter-BoldItalic.woff2" />
+    <Content Include="fonts\Inter-ExtraBold.woff" />
+    <Content Include="fonts\Inter-ExtraBold.woff2" />
+    <Content Include="fonts\Inter-ExtraBoldItalic.woff" />
+    <Content Include="fonts\Inter-ExtraBoldItalic.woff2" />
+    <Content Include="fonts\Inter-ExtraLight-BETA.woff" />
+    <Content Include="fonts\Inter-ExtraLight-BETA.woff2" />
+    <Content Include="fonts\Inter-ExtraLightItalic-BETA.woff" />
+    <Content Include="fonts\Inter-ExtraLightItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-italic.var.woff2" />
+    <Content Include="fonts\Inter-Italic.woff" />
+    <Content Include="fonts\Inter-Italic.woff2" />
+    <Content Include="fonts\Inter-Light-BETA.woff" />
+    <Content Include="fonts\Inter-Light-BETA.woff2" />
+    <Content Include="fonts\Inter-LightItalic-BETA.woff" />
+    <Content Include="fonts\Inter-LightItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-Medium.woff" />
+    <Content Include="fonts\Inter-Medium.woff2" />
+    <Content Include="fonts\Inter-MediumItalic.woff" />
+    <Content Include="fonts\Inter-MediumItalic.woff2" />
+    <Content Include="fonts\Inter-Regular.woff" />
+    <Content Include="fonts\Inter-Regular.woff2" />
+    <Content Include="fonts\Inter-SemiBold.woff" />
+    <Content Include="fonts\Inter-SemiBold.woff2" />
+    <Content Include="fonts\Inter-SemiBoldItalic.woff" />
+    <Content Include="fonts\Inter-SemiBoldItalic.woff2" />
+    <Content Include="fonts\Inter-Thin-BETA.woff" />
+    <Content Include="fonts\Inter-Thin-BETA.woff2" />
+    <Content Include="fonts\Inter-ThinItalic-BETA.woff" />
+    <Content Include="fonts\Inter-ThinItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-upright.var.woff2" />
+    <Content Include="fonts\Inter.var.woff2" />
+    <Content Include="Scripts\app.js.LICENSE" />
+    <Content Include="Scripts\app.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\fonts\fa-brands-400.eot" />
+    <Content Include="Content\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\fonts\fa-brands-400.woff" />
+    <Content Include="Content\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\fonts\fa-regular-400.eot" />
+    <Content Include="Content\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\fonts\fa-regular-400.woff" />
+    <Content Include="Content\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\fonts\fa-solid-900.eot" />
+    <Content Include="Content\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\fonts\fa-solid-900.woff" />
+    <Content Include="Content\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\fonts\Inter-Black.woff" />
+    <Content Include="Content\fonts\Inter-Black.woff2" />
+    <Content Include="Content\fonts\Inter-BlackItalic.woff" />
+    <Content Include="Content\fonts\Inter-BlackItalic.woff2" />
+    <Content Include="Content\fonts\Inter-Bold.woff" />
+    <Content Include="Content\fonts\Inter-Bold.woff2" />
+    <Content Include="Content\fonts\Inter-BoldItalic.woff" />
+    <Content Include="Content\fonts\Inter-BoldItalic.woff2" />
+    <Content Include="Content\fonts\Inter-ExtraBold.woff" />
+    <Content Include="Content\fonts\Inter-ExtraBold.woff2" />
+    <Content Include="Content\fonts\Inter-ExtraBoldItalic.woff" />
+    <Content Include="Content\fonts\Inter-ExtraBoldItalic.woff2" />
+    <Content Include="Content\fonts\Inter-ExtraLight-BETA.woff" />
+    <Content Include="Content\fonts\Inter-ExtraLight-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-ExtraLightItalic-BETA.woff" />
+    <Content Include="Content\fonts\Inter-ExtraLightItalic-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-italic.var.woff2" />
+    <Content Include="Content\fonts\Inter-Italic.woff" />
+    <Content Include="Content\fonts\Inter-Italic.woff2" />
+    <Content Include="Content\fonts\Inter-Light-BETA.woff" />
+    <Content Include="Content\fonts\Inter-Light-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-LightItalic-BETA.woff" />
+    <Content Include="Content\fonts\Inter-LightItalic-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-Medium.woff" />
+    <Content Include="Content\fonts\Inter-Medium.woff2" />
+    <Content Include="Content\fonts\Inter-MediumItalic.woff" />
+    <Content Include="Content\fonts\Inter-MediumItalic.woff2" />
+    <Content Include="Content\fonts\Inter-Regular.woff" />
+    <Content Include="Content\fonts\Inter-Regular.woff2" />
+    <Content Include="Content\fonts\Inter-SemiBold.woff" />
+    <Content Include="Content\fonts\Inter-SemiBold.woff2" />
+    <Content Include="Content\fonts\Inter-SemiBoldItalic.woff" />
+    <Content Include="Content\fonts\Inter-SemiBoldItalic.woff2" />
+    <Content Include="Content\fonts\Inter-Thin-BETA.woff" />
+    <Content Include="Content\fonts\Inter-Thin-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-ThinItalic-BETA.woff" />
+    <Content Include="Content\fonts\Inter-ThinItalic-BETA.woff2" />
+    <Content Include="Content\fonts\Inter-upright.var.woff2" />
+    <Content Include="Content\fonts\Inter.var.woff2" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\Payroll.cshtml" />
+    <Content Include="Views\Home\AddEmployee.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\Holidays.cshtml" />
+    <Content Include="Views\Home\Setting.cshtml" />
+    <Content Include="Views\Home\LeaveManagement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49738</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44389/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
